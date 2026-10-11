@@ -1,7 +1,6 @@
-# crawlora-bing
+# crawlora-bing — Bing API client for Python
 
-Python client for Crawlora's hosted Bing API. It calls Crawlora's
-service at [Crawlora](https://crawlora.net/?utm_source=pypi&utm_medium=referral&utm_campaign=platform-clients&utm_content=bing-python-homepage); it does not run a browser or scrape
+Python client for Crawlora's hosted Bing API. It exposes 5 API endpoints covering web, news, image, and video search plus query suggestions. Requests go to [Crawlora](https://crawlora.net/?utm_source=pypi&utm_medium=referral&utm_campaign=platform-clients&utm_content=bing-python-homepage); the package does not run a browser or scrape
 Bing locally. A Crawlora account and `CRAWLORA_API_KEY` are required,
 and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by
 Bing or its owners.
@@ -67,6 +66,18 @@ asyncio.run(main())
 ```
 
 See the [runnable example](https://github.com/Crawlora-org/crawlora-bing/blob/main/examples/python.py) for a complete usage example.
+
+## Supported Bing API endpoints
+
+This package exposes every route below through direct snake_case methods and the `bing` group. See the [endpoint and parameter reference](https://github.com/Crawlora-org/crawlora-bing/blob/main/docs/usage.md) for complete input details.
+
+| Method | Endpoint | API operation | Description |
+| --- | --- | --- | --- |
+| `GET` | `/bing/images` | `bing-images` | Search Bing image results |
+| `GET` | `/bing/news` | `bing-news` | Search Bing news results |
+| `GET` | `/bing/search` | `bing-search` | Search Bing web results |
+| `GET` | `/bing/suggest` | `bing-suggest` | Suggest Bing search queries |
+| `GET` | `/bing/videos` | `bing-videos` | Search Bing video results |
 
 ## Configuration
 

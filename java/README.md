@@ -1,6 +1,6 @@
-# Crawlora Bing Java Client
+# Crawlora Bing API client for Java
 
-The official Java client for Crawlora's hosted Bing API. It calls Crawlora's hosted API with your `x-api-key`; it does not connect to the upstream site directly.
+The official Java client for Crawlora's hosted Bing API. It exposes 5 endpoints covering web, news, image, and video search plus query suggestions. Requests use your `x-api-key`; the client does not connect to the upstream site directly.
 
 ## Install
 
@@ -30,6 +30,18 @@ try (Client client = new Client(System.getenv("CRAWLORA_API_KEY"))) {
 Each operation has a direct method that accepts the parameters documented for that endpoint. Use `client.request(operationId, params)` for generic dispatch. `Client.OPERATION_IDS`, `Client.OPERATION_COUNT`, `client.getOperationIds()`, and `client.getOperationCount()` describe this platform's operations only.
 
 For custom hosted API routing and timeouts, use `new Client(apiKey, baseUrl, Duration.ofSeconds(20))`. Text responses are returned as `String`; JSON responses are parsed into Java maps, lists, and scalar values.
+
+## Supported Bing API endpoints
+
+Browse every route included in this Java package. The [endpoint reference](https://github.com/Crawlora-org/crawlora-bing/blob/main/docs/usage.md) also lists parameters and response details.
+
+| Method | Endpoint | API operation | Description |
+| --- | --- | --- | --- |
+| `GET` | `/bing/images` | `bing-images` | Search Bing image results |
+| `GET` | `/bing/news` | `bing-news` | Search Bing news results |
+| `GET` | `/bing/search` | `bing-search` | Search Bing web results |
+| `GET` | `/bing/suggest` | `bing-suggest` | Suggest Bing search queries |
+| `GET` | `/bing/videos` | `bing-videos` | Search Bing video results |
 
 ## Links
 

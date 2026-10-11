@@ -1,10 +1,10 @@
 {
   "name": "@crawlora-org/bing",
   "version": "0.1.1",
-  "description": "Typed JavaScript client for the Crawlora Bing API",
+  "description": "Crawlora Bing API client with 5 endpoints for web, news, image, and video search plus query suggestions",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=bing-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-bing/issues" },
-  "keywords": ["crawlora", "api-client", "web-scraping", "bing", "typescript"],
+  "keywords": ["crawlora", "api-client", "web-scraping", "bing", "web", "news", "image", "video-search-query-suggestions"],
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",

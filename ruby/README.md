@@ -1,6 +1,6 @@
-# Crawlora Bing Ruby client
+# Crawlora Bing API client for Ruby (`crawlora-bing`)
 
-This gem calls the Crawlora hosted API at `https://api.crawlora.net/api/v1`. It does not call or scrape Bing directly. Requests require your Crawlora API key and use your account's service plan.
+This Ruby gem calls Crawlora's hosted Bing API at `https://api.crawlora.net/api/v1`. It exposes 5 endpoints covering web, news, image, and video search plus query suggestions; it does not call or scrape Bing directly. Requests require your Crawlora API key and use your account's service plan.
 
 ## Install
 
@@ -29,5 +29,17 @@ client.close
 ```
 
 Client options include `api_key`, `base_url`, and `timeout`. Ruby stdlib provides the HTTP and JSON support.
+
+## Supported Bing API endpoints
+
+Browse every route included in this gem. The [endpoint reference](https://github.com/Crawlora-org/crawlora-bing/blob/main/docs/usage.md) includes parameter and response details.
+
+| Method | Endpoint | API operation | Description |
+| --- | --- | --- | --- |
+| `GET` | `/bing/images` | `bing-images` | Search Bing image results |
+| `GET` | `/bing/news` | `bing-news` | Search Bing news results |
+| `GET` | `/bing/search` | `bing-search` | Search Bing web results |
+| `GET` | `/bing/suggest` | `bing-suggest` | Suggest Bing search queries |
+| `GET` | `/bing/videos` | `bing-videos` | Search Bing video results |
 
 See [Crawlora](https://crawlora.net/?utm_source=rubygems&utm_medium=referral&utm_campaign=platform-clients&utm_content=bing-ruby-homepage), the [API documentation](https://crawlora.net/docs?utm_source=rubygems&utm_medium=referral&utm_campaign=platform-clients&utm_content=bing-ruby-api-docs), and [the package repository](https://github.com/Crawlora-org/crawlora-bing) for account setup, the API operation reference, and release history.

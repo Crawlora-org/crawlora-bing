@@ -3,8 +3,8 @@ require_relative "lib/crawlora/bing/version"
 Gem::Specification.new do |spec|
   spec.name = "crawlora-bing"
   spec.version = Crawlora::Bing::VERSION
-  spec.summary = "Bing client for the Crawlora hosted API"
-  spec.description = "Credential-free Bing API access through Crawlora's hosted service."
+  spec.summary = "Bing API client for Crawlora (5 endpoints)"
+  spec.description = "Ruby client for Crawlora's hosted Bing API. Covers web, news, image, and video search plus query suggestions across 5 endpoints."
   spec.authors = ["Crawlora"]
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6"
