@@ -1,0 +1,434 @@
+{
+  "platform": "bing",
+  "operationCount": 5,
+  "operationIds": [
+    "bing-images",
+    "bing-news",
+    "bing-search",
+    "bing-suggest",
+    "bing-videos"
+  ],
+  "methods": {
+    "images": "bing-images",
+    "news": "bing-news",
+    "search": "bing-search",
+    "suggest": "bing-suggest",
+    "videos": "bing-videos"
+  },
+  "operations": {
+    "bing-images": {
+      "id": "bing-images",
+      "method": "GET",
+      "path": "/bing/images",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search query",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "openai"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer",
+          "x-example": 1
+        },
+        {
+          "description": "Results per page; defaults to 10, clamped to 1..50",
+          "in": "query",
+          "maximum": 50,
+          "minimum": 1,
+          "name": "count",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Two-letter country code; defaults to us",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Bing UI language; defaults to en-us",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "bing-news": {
+      "id": "bing-news",
+      "method": "GET",
+      "path": "/bing/news",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search query",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "openai"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer",
+          "x-example": 1
+        },
+        {
+          "description": "Results per page; defaults to 10, clamped to 1..50",
+          "in": "query",
+          "maximum": 50,
+          "minimum": 1,
+          "name": "count",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Two-letter country code; defaults to us",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Bing UI language; defaults to en-us",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "bing-search": {
+      "id": "bing-search",
+      "method": "GET",
+      "path": "/bing/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search query",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "openai"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer",
+          "x-example": 1
+        },
+        {
+          "description": "Results per page; defaults to 10, clamped to 1..50",
+          "in": "query",
+          "maximum": 50,
+          "minimum": 1,
+          "name": "count",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Two-letter country code; defaults to us",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Bing UI language; defaults to en-us",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "bing-suggest": {
+      "id": "bing-suggest",
+      "method": "GET",
+      "path": "/bing/suggest",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "rich",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search query prefix",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "openai"
+        },
+        {
+          "description": "Suggestions to return; defaults to 10, clamped to 1..12",
+          "in": "query",
+          "maximum": 12,
+          "minimum": 1,
+          "name": "count",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Two-letter country code; defaults to us",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Bing UI language; defaults to en-us",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        },
+        {
+          "description": "Add entity name, description, and image to suggestions Bing resolves to a known entity; defaults to false",
+          "in": "query",
+          "name": "rich",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "bing-videos": {
+      "id": "bing-videos",
+      "method": "GET",
+      "path": "/bing/videos",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search query",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "openai"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer",
+          "x-example": 1
+        },
+        {
+          "description": "Results per page; defaults to 10, clamped to 1..50",
+          "in": "query",
+          "maximum": 50,
+          "minimum": 1,
+          "name": "count",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Two-letter country code; defaults to us",
+          "in": "query",
+          "name": "country",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Bing UI language; defaults to en-us",
+          "in": "query",
+          "name": "lang",
+          "type": "string",
+          "x-example": "en-us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}

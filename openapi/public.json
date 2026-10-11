@@ -1,0 +1,1002 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "bing.ContextAttribute": {
+      "properties": {
+        "label": {
+          "example": "Founded",
+          "type": "string"
+        },
+        "value": {
+          "example": "2015",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.ImageResult": {
+      "properties": {
+        "height": {
+          "example": 800,
+          "type": "integer"
+        },
+        "image_url": {
+          "example": "https://www.example.com/openai-logo.jpg",
+          "type": "string"
+        },
+        "position": {
+          "example": 1,
+          "type": "integer"
+        },
+        "source": {
+          "example": "example.com",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.example.com/openai-logo",
+          "type": "string"
+        },
+        "thumbnail": {
+          "example": "https://th.bing.com/th/id/OIP.example",
+          "type": "string"
+        },
+        "title": {
+          "example": "OpenAI logo",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.example.com/openai-logo",
+          "type": "string"
+        },
+        "width": {
+          "example": 1200,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "bing.ImagesResponse": {
+      "properties": {
+        "pagination": {
+          "$ref": "#/definitions/bing.SearchPagination"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/bing.ImageResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "bing.NewsResponse": {
+      "properties": {
+        "pagination": {
+          "$ref": "#/definitions/bing.SearchPagination"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/bing.NewsResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "bing.NewsResult": {
+      "properties": {
+        "age": {
+          "example": "2 hours ago",
+          "type": "string"
+        },
+        "age_timestamp": {
+          "example": 1713513600,
+          "type": "integer"
+        },
+        "description": {
+          "example": "OpenAI announced a new model release.",
+          "type": "string"
+        },
+        "position": {
+          "example": 1,
+          "type": "integer"
+        },
+        "related_count": {
+          "example": 30,
+          "type": "integer"
+        },
+        "source": {
+          "example": "Reuters",
+          "type": "string"
+        },
+        "thumbnail": {
+          "example": "https://example.com/openai-news.jpg",
+          "type": "string"
+        },
+        "title": {
+          "example": "OpenAI announces new model",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://example.com/openai-news",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SearchContext": {
+      "properties": {
+        "attributes": {
+          "items": {
+            "$ref": "#/definitions/bing.ContextAttribute"
+          },
+          "type": "array"
+        },
+        "description": {
+          "example": "OpenAI is an AI research and deployment company.",
+          "type": "string"
+        },
+        "image": {
+          "example": "https://example.com/openai.jpg",
+          "type": "string"
+        },
+        "subtitle": {
+          "example": "Artificial intelligence research organization",
+          "type": "string"
+        },
+        "title": {
+          "example": "OpenAI",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://openai.com/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SearchPagination": {
+      "properties": {
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "next_page": {
+          "example": 2,
+          "type": "integer"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "previous_page": {
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SearchResponse": {
+      "properties": {
+        "context": {
+          "$ref": "#/definitions/bing.SearchContext"
+        },
+        "low_confidence": {
+          "description": "LowConfidence is true when Bing returned a well-formed page whose\norganic results share no significant term with the query -- a known\nupstream anomaly where Bing serves an unrelated SERP for certain\nmulti-word queries instead of a challenge page or an error. The\nfields above are exactly what Bing\nreturned; nothing is fabricated, reordered, or filtered. Treat a true\nvalue as a hint to double-check relevance (or retry) before trusting\nthe results, not as a guarantee they are wrong -- some low-confidence\nresponses are still perfectly good, they just didn't literally repeat\na distinctive word from the query. Omitted (false) on every ordinary\nresponse.",
+          "example": false,
+          "type": "boolean"
+        },
+        "news": {
+          "items": {
+            "$ref": "#/definitions/bing.NewsResult"
+          },
+          "type": "array"
+        },
+        "pagination": {
+          "$ref": "#/definitions/bing.SearchPagination"
+        },
+        "people_also_ask": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "related_queries": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/bing.SearchResult"
+          },
+          "type": "array"
+        },
+        "videos": {
+          "items": {
+            "$ref": "#/definitions/bing.VideoResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SearchResult": {
+      "properties": {
+        "age": {
+          "example": "Apr 19, 2023",
+          "type": "string"
+        },
+        "age_timestamp": {
+          "example": 1713484800,
+          "type": "integer"
+        },
+        "description": {
+          "example": "OpenAI is an AI research and deployment company.",
+          "type": "string"
+        },
+        "display_url": {
+          "example": "https://www.reddit.com > OpenAI",
+          "type": "string"
+        },
+        "favicon": {
+          "example": "https://th.bing.com/th/id/ODLS.example?w=32&h=32",
+          "type": "string"
+        },
+        "hostname": {
+          "example": "www.reddit.com",
+          "type": "string"
+        },
+        "position": {
+          "example": 1,
+          "type": "integer"
+        },
+        "title": {
+          "example": "OpenAI - Reddit",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.reddit.com/r/OpenAI/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SuggestResponse": {
+      "properties": {
+        "query": {
+          "example": "openai",
+          "type": "string"
+        },
+        "suggestions": {
+          "items": {
+            "$ref": "#/definitions/bing.SuggestionResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SuggestionEntity": {
+      "properties": {
+        "description": {
+          "example": "American AI company",
+          "type": "string"
+        },
+        "image_url": {
+          "example": "https://ts3.tc.mm.bing.net/th/id/OSK.example?w=120&h=120",
+          "type": "string"
+        },
+        "name": {
+          "example": "OpenAI",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.SuggestionResult": {
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/bing.SuggestionEntity"
+        },
+        "position": {
+          "example": 1,
+          "type": "integer"
+        },
+        "query": {
+          "example": "openai api key",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.VideoResult": {
+      "properties": {
+        "age": {
+          "example": "Nov 6, 2023",
+          "type": "string"
+        },
+        "age_timestamp": {
+          "example": 1699228800,
+          "type": "integer"
+        },
+        "creator": {
+          "example": "OpenAI",
+          "type": "string"
+        },
+        "duration": {
+          "example": "45:12",
+          "type": "string"
+        },
+        "platform": {
+          "example": "YouTube",
+          "type": "string"
+        },
+        "position": {
+          "example": 1,
+          "type": "integer"
+        },
+        "thumbnail": {
+          "example": "https://example.com/openai-video.jpg",
+          "type": "string"
+        },
+        "title": {
+          "example": "OpenAI DevDay keynote - YouTube",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.youtube.com/watch?v=openai-devday",
+          "type": "string"
+        },
+        "views": {
+          "example": "1.2M views",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.VideosResponse": {
+      "properties": {
+        "pagination": {
+          "$ref": "#/definitions/bing.SearchPagination"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/bing.VideoResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "bing.imagesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/bing.ImagesResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.newsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/bing.NewsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.searchResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/bing.SearchResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.suggestResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/bing.SuggestResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bing.videosResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/bing.VideosResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/bing/images": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Bing image search results for a query string. Locale defaults to country=us and lang=en-us. Results are fetched from public Bing image HTML/async pages and return 503 when Bing serves a challenge page or unusable HTML.",
+        "operationId": "bing-images",
+        "parameters": [
+          {
+            "description": "Search query",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "openai"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          },
+          {
+            "description": "Results per page; defaults to 10, clamped to 1..50",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "count",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Two-letter country code; defaults to us",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Bing UI language; defaults to en-us",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/bing.imagesResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "No results found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Bing upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Bing image results",
+        "tags": [
+          "bing"
+        ]
+      }
+    },
+    "/bing/news": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Bing news search results for a query string. Locale defaults to country=us and lang=en-us. Results are fetched from public Bing news HTML/async pages and return 503 when Bing serves a challenge page or unusable HTML.",
+        "operationId": "bing-news",
+        "parameters": [
+          {
+            "description": "Search query",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "openai"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          },
+          {
+            "description": "Results per page; defaults to 10, clamped to 1..50",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "count",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Two-letter country code; defaults to us",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Bing UI language; defaults to en-us",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/bing.newsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "No results found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Bing upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Bing news results",
+        "tags": [
+          "bing"
+        ]
+      }
+    },
+    "/bing/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Bing web search results for a query string, including organic results, optional context panel data, related queries, people-also-ask questions, news modules, video modules, and page-based pagination. Empty optional blocks are omitted from the JSON response. Locale defaults to country=us and lang=en-us. Results are fetched with a Chrome-impersonated request client and return 503 on a genuine transport failure or challenge page. Bing occasionally serves a well-formed page whose results share no significant term with the query; when every hedged attempt hits this, the response is still returned as 200 with data.low_confidence set to true (and the X-Low-Confidence header) instead of being withheld, so callers get Bing's real answer plus an honest signal to double-check it rather than nothing. Queries that use the site: operator (for example site:gov.hu) are not supported: Bing serves a bot-verification challenge for them, so they are rejected with 400 before any request is made. Use the DuckDuckGo (/api/v1/duckduckgo/search), Brave (/api/v1/brave/search), or Yahoo (/api/v1/yahoo-search/search) search endpoints for domain-restricted searches instead.",
+        "operationId": "bing-search",
+        "parameters": [
+          {
+            "description": "Search query",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "openai"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          },
+          {
+            "description": "Results per page; defaults to 10, clamped to 1..50",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "count",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Two-letter country code; defaults to us",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Bing UI language; defaults to en-us",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "data.low_confidence is true when Bing's results shared no significant term with the query (see the field's description); the data is still exactly what Bing returned",
+            "schema": {
+              "$ref": "#/definitions/bing.searchResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "No results found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Bing upstream request failed (transport failure, challenge page, or every hedge attempt rejected -- see data.low_confidence for the case where Bing did answer but every attempt looked unrelated to the query)",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Bing web results",
+        "tags": [
+          "bing"
+        ]
+      }
+    },
+    "/bing/suggest": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns Bing autosuggest query completions for a query prefix. Locale defaults to country=us and lang=en-us. Suggestions are fetched from public Bing suggest endpoints and trimmed to the requested count. `rich=true` adds entity cards (name, description, image) where Bing shows them.",
+        "operationId": "bing-suggest",
+        "parameters": [
+          {
+            "description": "Search query prefix",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "openai"
+          },
+          {
+            "description": "Suggestions to return; defaults to 10, clamped to 1..12",
+            "in": "query",
+            "maximum": 12,
+            "minimum": 1,
+            "name": "count",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Two-letter country code; defaults to us",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Bing UI language; defaults to en-us",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          },
+          {
+            "description": "Add entity name, description, and image to suggestions Bing resolves to a known entity; defaults to false",
+            "in": "query",
+            "name": "rich",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/bing.suggestResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Bing upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Suggest Bing search queries",
+        "tags": [
+          "bing"
+        ]
+      }
+    },
+    "/bing/videos": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Bing video search results for a query string. Locale defaults to country=us and lang=en-us. Results are fetched from public Bing video HTML/async pages and return 503 when Bing serves a challenge page or unusable HTML.",
+        "operationId": "bing-videos",
+        "parameters": [
+          {
+            "description": "Search query",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "openai"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          },
+          {
+            "description": "Results per page; defaults to 10, clamped to 1..50",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "count",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Two-letter country code; defaults to us",
+            "in": "query",
+            "name": "country",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Bing UI language; defaults to en-us",
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "x-example": "en-us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/bing.videosResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "No results found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Bing upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Bing video results",
+        "tags": [
+          "bing"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "bing"
+    }
+  ]
+}

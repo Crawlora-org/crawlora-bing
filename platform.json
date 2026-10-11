@@ -1,0 +1,23 @@
+{
+  "async_class_name": "AsyncBingClient",
+  "class_name": "BingClient",
+  "contract_revision": "sha256:73cc910f0df40739a5161642e71d8dfcb316ce168baa08a43e8513a5349bd40c",
+  "display_name": "Bing",
+  "general_sdk_version": "1.46.0-sdk.1",
+  "golang_module_name": "github.com/Crawlora-org/crawlora-bing",
+  "golang_version": "0.1.0",
+  "group_name": "bing",
+  "java_description": "Java client for Crawlora's hosted Bing API, with web, news, image, and video search plus query suggestions. Requires a Crawlora API key.",
+  "maven_artifact_id": "crawlora-bing",
+  "maven_group_id": "net.crawlora",
+  "module_name": "crawlora_bing",
+  "npm_name": "@crawlora-org/bing",
+  "php_package_name": "crawlora/bing",
+  "php_repository": "https://github.com/Crawlora-org/crawlora-bing",
+  "platform": "bing",
+  "python_name": "crawlora-bing",
+  "repository": "https://github.com/Crawlora-org/crawlora-bing",
+  "ruby_gem_name": "crawlora-bing",
+  "source_contract_sha256": "8f37412b34b49c443ff8c115dadaf9b6a2a82fd767af53137ce5e9f6b288ea20",
+  "version": "0.1.0"
+}
