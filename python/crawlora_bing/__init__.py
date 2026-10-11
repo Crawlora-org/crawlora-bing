@@ -6,7 +6,7 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = BingClient
 AsyncClient = AsyncBingClient
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 DISPLAY_NAME = 'Bing'
 PLATFORM = 'bing'
 CONTRACT_REVISION = 'sha256:73cc910f0df40739a5161642e71d8dfcb316ce168baa08a43e8513a5349bd40c'
