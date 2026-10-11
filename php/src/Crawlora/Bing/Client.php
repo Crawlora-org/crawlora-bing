@@ -26,7 +26,7 @@ final class Client
     private ?\Closure $transport;
 
     public const PLATFORM = 'bing';
-    public const VERSION = '0.1.0';
+    public const VERSION = '0.1.1';
     public const OPERATION_COUNT = 5;
     public const OPERATION_IDS = ["bing-images", "bing-news", "bing-search", "bing-suggest", "bing-videos"];
 
@@ -57,7 +57,7 @@ JSON, true, 512, JSON_THROW_ON_ERROR);
         $url = $this->buildUrl($operation, $params);
         $headers = [
             'x-api-key: ' . $this->apiKey,
-            'User-Agent: crawlora-bing-php/0.1.0',
+            'User-Agent: crawlora-bing-php/0.1.1',
             'Accept: ' . (in_array('text/plain', $operation['produces'], true) ? 'application/json, text/plain' : 'application/json'),
         ];
         if ($payload !== null) {
