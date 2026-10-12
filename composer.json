@@ -4,12 +4,18 @@
   "keywords": [
     "crawlora",
     "api-client",
+    "sdk",
     "web-scraping",
+    "scraping-api",
     "bing",
-    "web",
-    "news",
-    "image",
-    "video-search-query-suggestions"
+    "bing-api",
+    "bing-scraper",
+    "bing-data",
+    "bing-web",
+    "bing-news",
+    "bing-image",
+    "bing-video-search",
+    "bing-query-suggestions"
   ],
   "type": "library",
   "license": "MIT",
