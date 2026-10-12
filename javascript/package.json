@@ -4,7 +4,7 @@
   "description": "Crawlora Bing API client with 5 endpoints for web, news, image, and video search plus query suggestions",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=bing-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-bing/issues" },
-  "keywords": ["crawlora", "api-client", "web-scraping", "bing", "web", "news", "image", "video-search-query-suggestions"],
+  "keywords": ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "bing", "bing-api", "bing-scraper", "bing-data", "bing-web", "bing-news", "bing-image", "bing-video-search", "bing-query-suggestions"],
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
