@@ -9,7 +9,7 @@ import {
 
 export class BingClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-bing-js/0.1.1" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-bing-js/0.2.0" });
     this["images"] = (...args) => this.request("bing-images", ...args);
     this["news"] = (...args) => this.request("bing-news", ...args);
     this["search"] = (...args) => this.request("bing-search", ...args);
@@ -27,5 +27,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.1.1";
+export const VERSION = "0.2.0";
 export default BingClient;

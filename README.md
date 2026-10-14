@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted Bing API. Access 5 API endpoint
 - Python: [`crawlora-bing`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-bing`](go.mod)
 - Ruby: [`crawlora-bing`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-bing:0.1.1`](java/README.md)
+- Java: [`net.crawlora:crawlora-bing:0.2.0`](java/README.md)
 - PHP: [`crawlora/bing`](php/README.md)
 
 For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.

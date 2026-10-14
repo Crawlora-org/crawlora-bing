@@ -1,11 +1,11 @@
 {
   "async_class_name": "AsyncBingClient",
   "class_name": "BingClient",
-  "contract_revision": "sha256:73cc910f0df40739a5161642e71d8dfcb316ce168baa08a43e8513a5349bd40c",
+  "contract_revision": "sha256:0c1aae283aa17db66ba7f542134d6b983351857e5d153e22cbf40c4fb6506eb0",
   "display_name": "Bing",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-bing",
-  "golang_version": "0.1.1",
+  "golang_version": "0.2.0",
   "group_name": "bing",
   "java_description": "Java client for Crawlora's hosted Bing API, with web, news, image, and video search plus query suggestions. Requires a Crawlora API key.",
   "maven_artifact_id": "crawlora-bing",
@@ -16,18 +16,25 @@
   "php_repository": "https://github.com/Crawlora-org/crawlora-bing",
   "platform": "bing",
   "python_name": "crawlora-bing",
-  "repository": "https://github.com/Crawlora-org/crawlora-bing",
-  "ruby_gem_name": "crawlora-bing",
-  "source_contract_sha256": "8f37412b34b49c443ff8c115dadaf9b6a2a82fd767af53137ce5e9f6b288ea20",
-  "version": "0.1.1",
   "releases": [
     {
-      "version": "0.1.1",
-      "date": "2026-10-12",
+      "changes": [
+        "Updated operation contracts: bing-images, bing-news, bing-search, bing-suggest, bing-videos."
+      ],
+      "date": "2026-10-14",
+      "version": "0.2.0"
+    },
+    {
       "changes": [
         "Publish npm releases through GitHub Actions with provenance.",
         "Expand API endpoint documentation and package metadata for discoverability."
-      ]
+      ],
+      "date": "2026-10-12",
+      "version": "0.1.1"
     }
-  ]
+  ],
+  "repository": "https://github.com/Crawlora-org/crawlora-bing",
+  "ruby_gem_name": "crawlora-bing",
+  "source_contract_sha256": "edf94a318d422a94556084a811322eca2f95fd990cb37ad55abc6475c46b633a",
+  "version": "0.2.0"
 }

@@ -20,10 +20,12 @@
     "bing.ContextAttribute": {
       "properties": {
         "label": {
+          "description": "Name of the fact, for example `Founded`.",
           "example": "Founded",
           "type": "string"
         },
         "value": {
+          "description": "Value of the fact, for example `2015`.",
           "example": "2015",
           "type": "string"
         }
@@ -33,38 +35,47 @@
     "bing.ImageResult": {
       "properties": {
         "height": {
+          "description": "Image height as Bing reports it.",
           "example": 800,
           "type": "integer"
         },
         "image_url": {
+          "description": "URL of the full-size image.",
           "example": "https://www.example.com/openai-logo.jpg",
           "type": "string"
         },
         "position": {
+          "description": "Rank of the image across all result pages, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "source": {
+          "description": "Site the image comes from, for example `example.com`.",
           "example": "example.com",
           "type": "string"
         },
         "source_url": {
+          "description": "URL of the page that hosts the image.",
           "example": "https://www.example.com/openai-logo",
           "type": "string"
         },
         "thumbnail": {
+          "description": "URL of the image thumbnail served by Bing.",
           "example": "https://th.bing.com/th/id/OIP.example",
           "type": "string"
         },
         "title": {
+          "description": "Image title as shown on the Bing results page.",
           "example": "OpenAI logo",
           "type": "string"
         },
         "url": {
+          "description": "URL Bing links the image result to.",
           "example": "https://www.example.com/openai-logo",
           "type": "string"
         },
         "width": {
+          "description": "Image width as Bing reports it.",
           "example": 1200,
           "type": "integer"
         }
@@ -74,9 +85,15 @@
     "bing.ImagesResponse": {
       "properties": {
         "pagination": {
-          "$ref": "#/definitions/bing.SearchPagination"
+          "allOf": [
+            {
+              "$ref": "#/definitions/bing.SearchPagination"
+            }
+          ],
+          "description": "Paging information for this response."
         },
         "results": {
+          "description": "Image results in Bing's order.",
           "items": {
             "$ref": "#/definitions/bing.ImageResult"
           },
@@ -88,9 +105,15 @@
     "bing.NewsResponse": {
       "properties": {
         "pagination": {
-          "$ref": "#/definitions/bing.SearchPagination"
+          "allOf": [
+            {
+              "$ref": "#/definitions/bing.SearchPagination"
+            }
+          ],
+          "description": "Paging information for this response."
         },
         "results": {
+          "description": "News results in Bing's order.",
           "items": {
             "$ref": "#/definitions/bing.NewsResult"
           },
@@ -102,38 +125,47 @@
     "bing.NewsResult": {
       "properties": {
         "age": {
+          "description": "How long ago the article was published, as Bing shows it.",
           "example": "2 hours ago",
           "type": "string"
         },
         "age_timestamp": {
+          "description": "Publication time of the article as Unix seconds in UTC. Omitted when it cannot be worked out from `age`.",
           "example": 1713513600,
           "type": "integer"
         },
         "description": {
+          "description": "Article snippet as shown on the Bing results page.",
           "example": "OpenAI announced a new model release.",
           "type": "string"
         },
         "position": {
+          "description": "Rank of the article in the news block, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "related_count": {
+          "description": "Number of additional relevant news articles Bing groups with this story.",
           "example": 30,
           "type": "integer"
         },
         "source": {
+          "description": "Name of the publication, for example `Reuters`.",
           "example": "Reuters",
           "type": "string"
         },
         "thumbnail": {
+          "description": "URL of the article thumbnail.",
           "example": "https://example.com/openai-news.jpg",
           "type": "string"
         },
         "title": {
+          "description": "Article headline as shown on the Bing results page.",
           "example": "OpenAI announces new model",
           "type": "string"
         },
         "url": {
+          "description": "URL of the news article.",
           "example": "https://example.com/openai-news",
           "type": "string"
         }
@@ -143,28 +175,34 @@
     "bing.SearchContext": {
       "properties": {
         "attributes": {
+          "description": "Key facts Bing lists in the knowledge panel.",
           "items": {
             "$ref": "#/definitions/bing.ContextAttribute"
           },
           "type": "array"
         },
         "description": {
+          "description": "Description text shown in the knowledge panel.",
           "example": "OpenAI is an AI research and deployment company.",
           "type": "string"
         },
         "image": {
+          "description": "URL of the knowledge panel image.",
           "example": "https://example.com/openai.jpg",
           "type": "string"
         },
         "subtitle": {
+          "description": "Short descriptor shown under the knowledge panel title.",
           "example": "Artificial intelligence research organization",
           "type": "string"
         },
         "title": {
+          "description": "Name of the entity in the knowledge panel.",
           "example": "OpenAI",
           "type": "string"
         },
         "url": {
+          "description": "URL of the entity's main website or source page.",
           "example": "https://openai.com/",
           "type": "string"
         }
@@ -174,18 +212,22 @@
     "bing.SearchPagination": {
       "properties": {
         "count": {
+          "description": "Number of results requested per page.",
           "example": 10,
           "type": "integer"
         },
         "next_page": {
+          "description": "Page number of the next page. Omitted when there is no next page.",
           "example": 2,
           "type": "integer"
         },
         "page": {
+          "description": "Page number of this response, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "previous_page": {
+          "description": "Page number of the previous page. Omitted on the first page.",
           "example": 1,
           "type": "integer"
         }
@@ -195,7 +237,12 @@
     "bing.SearchResponse": {
       "properties": {
         "context": {
-          "$ref": "#/definitions/bing.SearchContext"
+          "allOf": [
+            {
+              "$ref": "#/definitions/bing.SearchContext"
+            }
+          ],
+          "description": "Knowledge panel Bing shows for the query. Omitted when there is none."
         },
         "low_confidence": {
           "description": "LowConfidence is true when Bing returned a well-formed page whose\norganic results share no significant term with the query -- a known\nupstream anomaly where Bing serves an unrelated SERP for certain\nmulti-word queries instead of a challenge page or an error. The\nfields above are exactly what Bing\nreturned; nothing is fabricated, reordered, or filtered. Treat a true\nvalue as a hint to double-check relevance (or retry) before trusting\nthe results, not as a guarantee they are wrong -- some low-confidence\nresponses are still perfectly good, they just didn't literally repeat\na distinctive word from the query. Omitted (false) on every ordinary\nresponse.",
@@ -203,33 +250,43 @@
           "type": "boolean"
         },
         "news": {
+          "description": "News results Bing shows for the query. Omitted when there are none.",
           "items": {
             "$ref": "#/definitions/bing.NewsResult"
           },
           "type": "array"
         },
         "pagination": {
-          "$ref": "#/definitions/bing.SearchPagination"
+          "allOf": [
+            {
+              "$ref": "#/definitions/bing.SearchPagination"
+            }
+          ],
+          "description": "Paging information for this response."
         },
         "people_also_ask": {
+          "description": "Questions from Bing's People also ask block.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "related_queries": {
+          "description": "Related searches Bing suggests for the query.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "results": {
+          "description": "Organic web results in Bing's order.",
           "items": {
             "$ref": "#/definitions/bing.SearchResult"
           },
           "type": "array"
         },
         "videos": {
+          "description": "Video results Bing shows for the query. Omitted when there are none.",
           "items": {
             "$ref": "#/definitions/bing.VideoResult"
           },
@@ -241,38 +298,47 @@
     "bing.SearchResult": {
       "properties": {
         "age": {
+          "description": "Date or age shown on the result, as Bing shows it. Omitted when Bing shows none.",
           "example": "Apr 19, 2023",
           "type": "string"
         },
         "age_timestamp": {
+          "description": "Time from `age` as Unix seconds in UTC. Omitted when it cannot be worked out.",
           "example": 1713484800,
           "type": "integer"
         },
         "description": {
+          "description": "Result snippet as shown on the Bing results page.",
           "example": "OpenAI is an AI research and deployment company.",
           "type": "string"
         },
         "display_url": {
+          "description": "URL as displayed under the result title on Bing.",
           "example": "https://www.reddit.com > OpenAI",
           "type": "string"
         },
         "favicon": {
+          "description": "URL of the site's favicon as Bing serves it.",
           "example": "https://th.bing.com/th/id/ODLS.example?w=32&h=32",
           "type": "string"
         },
         "hostname": {
+          "description": "Host name of the result URL.",
           "example": "www.reddit.com",
           "type": "string"
         },
         "position": {
+          "description": "Rank of the result across all pages for the query, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "title": {
+          "description": "Result title as shown on the Bing results page.",
           "example": "OpenAI - Reddit",
           "type": "string"
         },
         "url": {
+          "description": "URL of the result page.",
           "example": "https://www.reddit.com/r/OpenAI/",
           "type": "string"
         }
@@ -282,10 +348,12 @@
     "bing.SuggestResponse": {
       "properties": {
         "query": {
+          "description": "Query prefix the suggestions were requested for.",
           "example": "openai",
           "type": "string"
         },
         "suggestions": {
+          "description": "Search suggestions Bing returned, in order.",
           "items": {
             "$ref": "#/definitions/bing.SuggestionResult"
           },
@@ -297,14 +365,17 @@
     "bing.SuggestionEntity": {
       "properties": {
         "description": {
+          "description": "Short description of the entity.",
           "example": "American AI company",
           "type": "string"
         },
         "image_url": {
+          "description": "URL of the entity's image.",
           "example": "https://ts3.tc.mm.bing.net/th/id/OSK.example?w=120&h=120",
           "type": "string"
         },
         "name": {
+          "description": "Name of the entity.",
           "example": "OpenAI",
           "type": "string"
         }
@@ -314,13 +385,20 @@
     "bing.SuggestionResult": {
       "properties": {
         "entity": {
-          "$ref": "#/definitions/bing.SuggestionEntity"
+          "allOf": [
+            {
+              "$ref": "#/definitions/bing.SuggestionEntity"
+            }
+          ],
+          "description": "Entity Bing matched to the suggestion. Only set when the request used `rich=true` and Bing recognises an entity."
         },
         "position": {
+          "description": "Rank of the suggestion in the list, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "query": {
+          "description": "Suggested search query.",
           "example": "openai api key",
           "type": "string"
         }
@@ -330,42 +408,52 @@
     "bing.VideoResult": {
       "properties": {
         "age": {
+          "description": "When the video was published, as Bing shows it.",
           "example": "Nov 6, 2023",
           "type": "string"
         },
         "age_timestamp": {
+          "description": "Time from `age` as Unix seconds in UTC. Omitted when it cannot be worked out.",
           "example": 1699228800,
           "type": "integer"
         },
         "creator": {
+          "description": "Channel or creator that published the video.",
           "example": "OpenAI",
           "type": "string"
         },
         "duration": {
+          "description": "Video length as Bing shows it, for example `45:12`.",
           "example": "45:12",
           "type": "string"
         },
         "platform": {
+          "description": "Platform hosting the video, for example `YouTube`.",
           "example": "YouTube",
           "type": "string"
         },
         "position": {
+          "description": "Rank of the video in the videos block, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "thumbnail": {
+          "description": "URL of the video thumbnail.",
           "example": "https://example.com/openai-video.jpg",
           "type": "string"
         },
         "title": {
+          "description": "Video title as shown on the Bing results page.",
           "example": "OpenAI DevDay keynote - YouTube",
           "type": "string"
         },
         "url": {
+          "description": "URL of the video page.",
           "example": "https://www.youtube.com/watch?v=openai-devday",
           "type": "string"
         },
         "views": {
+          "description": "View count as Bing shows it, for example `1.2M views`.",
           "example": "1.2M views",
           "type": "string"
         }
@@ -375,9 +463,15 @@
     "bing.VideosResponse": {
       "properties": {
         "pagination": {
-          "$ref": "#/definitions/bing.SearchPagination"
+          "allOf": [
+            {
+              "$ref": "#/definitions/bing.SearchPagination"
+            }
+          ],
+          "description": "Paging information for this response."
         },
         "results": {
+          "description": "Video results in Bing's order.",
           "items": {
             "$ref": "#/definitions/bing.VideoResult"
           },
@@ -494,7 +588,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Bing image search results for a query string. Locale defaults to country=us and lang=en-us. Results are fetched from public Bing image HTML/async pages and return 503 when Bing serves a challenge page or unusable HTML.",
+        "description": "Returns Bing image search results for a query string. Locale defaults to country=us and lang=en-us. Returns 503 when Bing serves a challenge page or unusable results.",
         "operationId": "bing-images",
         "parameters": [
           {
@@ -594,7 +688,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Bing news search results for a query string. Locale defaults to country=us and lang=en-us. Results are fetched from public Bing news HTML/async pages and return 503 when Bing serves a challenge page or unusable HTML.",
+        "description": "Returns Bing news search results for a query string. Locale defaults to country=us and lang=en-us. Returns 503 when Bing serves a challenge page or unusable results.",
         "operationId": "bing-news",
         "parameters": [
           {
@@ -694,7 +788,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Bing web search results for a query string, including organic results, optional context panel data, related queries, people-also-ask questions, news modules, video modules, and page-based pagination. Empty optional blocks are omitted from the JSON response. Locale defaults to country=us and lang=en-us. Results are fetched with a Chrome-impersonated request client and return 503 on a genuine transport failure or challenge page. Bing occasionally serves a well-formed page whose results share no significant term with the query; when every hedged attempt hits this, the response is still returned as 200 with data.low_confidence set to true (and the X-Low-Confidence header) instead of being withheld, so callers get Bing's real answer plus an honest signal to double-check it rather than nothing. Queries that use the site: operator (for example site:gov.hu) are not supported: Bing serves a bot-verification challenge for them, so they are rejected with 400 before any request is made. Use the DuckDuckGo (/api/v1/duckduckgo/search), Brave (/api/v1/brave/search), or Yahoo (/api/v1/yahoo-search/search) search endpoints for domain-restricted searches instead.",
+        "description": "Returns Bing web search results for a query string, including organic results, optional context panel data, related queries, people-also-ask questions, news modules, video modules, and page-based pagination. Empty optional blocks are omitted from the JSON response. Locale defaults to country=us and lang=en-us. Returns 503 on a genuine transport failure or challenge page. Bing occasionally serves a well-formed page whose results share no significant term with the query; when every attempt hits this, the response is still returned as 200 with data.low_confidence set to true (and the X-Low-Confidence header) instead of being withheld, so callers get Bing's real answer plus an honest signal to double-check it rather than nothing. Queries that use the site: operator (for example site:gov.hu) are not supported: Bing serves a bot-verification challenge for them, so they are rejected with 400 before any request is made. Use the DuckDuckGo (/api/v1/duckduckgo/search), Brave (/api/v1/brave/search), or Yahoo (/api/v1/yahoo-search/search) search endpoints for domain-restricted searches instead.",
         "operationId": "bing-search",
         "parameters": [
           {
@@ -887,7 +981,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Bing video search results for a query string. Locale defaults to country=us and lang=en-us. Results are fetched from public Bing video HTML/async pages and return 503 when Bing serves a challenge page or unusable HTML.",
+        "description": "Returns Bing video search results for a query string. Locale defaults to country=us and lang=en-us. Returns 503 when Bing serves a challenge page or unusable results.",
         "operationId": "bing-videos",
         "parameters": [
           {

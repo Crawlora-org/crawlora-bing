@@ -6,10 +6,10 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = BingClient
 AsyncClient = AsyncBingClient
-__version__ = '0.1.1'
+__version__ = '0.2.0'
 DISPLAY_NAME = 'Bing'
 PLATFORM = 'bing'
-CONTRACT_REVISION = 'sha256:73cc910f0df40739a5161642e71d8dfcb316ce168baa08a43e8513a5349bd40c'
+CONTRACT_REVISION = 'sha256:0c1aae283aa17db66ba7f542134d6b983351857e5d153e22cbf40c4fb6506eb0'
 
 __all__ = [
     "BingClient", "AsyncBingClient", "Client", "AsyncClient",
